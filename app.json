@@ -1,7 +1,7 @@
 {
     "name": "pair session",
     "description": "Web Session Generator",
-    "logo": "https://i.imgur.com/teQzVR1.jpeg",
+    "logo": "https://files.catbox.moe/zfhbst.png",
     "repository": "https://github.com/XdKing2/malvin-pair",
     "keywords": ["MalvinTech","XdKing2"],
     "success_url": "/", 
