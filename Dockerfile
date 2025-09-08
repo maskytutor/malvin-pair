@@ -1,24 +1,21 @@
-# Use official Node.js image (Debian-based)
-FROM node:18-buster
+FROM node:18-bullseye
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies (ffmpeg, imagemagick, webp)
+# Install ffmpeg, imagemagick, and webp
 RUN apt-get update && \
-    apt-get install -y ffmpeg imagemagick webp && \
-    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+        ffmpeg \
+        imagemagick \
+        webp && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy package.json and install node deps
+# Copy package.json and install node dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy rest of the app
+# Copy application code
 COPY . .
 
-# Expose app port (example: 3000)
 EXPOSE 3000
-
-# Start command
 CMD ["npm", "start"]
