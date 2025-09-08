@@ -1,8 +1,9 @@
 FROM node:18-bullseye
 
+# Set working directory
 WORKDIR /app
 
-# Install ffmpeg, imagemagick, and webp
+# Install required system packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         ffmpeg \
@@ -10,12 +11,17 @@ RUN apt-get update && \
         webp && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy package.json and install node dependencies
+# Copy dependency definitions
 COPY package*.json ./
-RUN npm install
 
-# Copy application code
+# Install node dependencies
+RUN npm install --production
+
+# Copy all application code (including index.js, pair.js, qr.js, .html files)
 COPY . .
 
-EXPOSE 3000
+# Expose the port your app actually uses
+EXPOSE 8000
+
+# Start app (using npm start, as defined in package.json)
 CMD ["npm", "start"]
