@@ -1,21 +1,24 @@
-FROM node:lts-buster
+# Use official Node.js image (Debian-based)
+FROM node:18-buster
 
+# Set working directory
+WORKDIR /app
+
+# Install dependencies (ffmpeg, imagemagick, webp)
 RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
-  
-WORKDIR /usr/src/app
+    apt-get install -y ffmpeg imagemagick webp && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY package.json .
+# Copy package.json and install node deps
+COPY package*.json ./
+RUN npm install
 
-RUN npm install && npm install -g qrcode-terminal pm2
-
+# Copy rest of the app
 COPY . .
 
-EXPOSE 5000
+# Expose app port (example: 3000)
+EXPOSE 3000
 
+# Start command
 CMD ["npm", "start"]
