@@ -88,4 +88,4 @@ var randomItem = selectRandomItem(items);
 
 🚀 Bug Fixes + New Commands + Fast AI Chat
 📺 Watch Now:  https://youtu.be/CA7CfI-8Gpk✌🏻`; 
-                        await sock.sendMessage(sock.user.
+                        await sock.sendMessage(sock.user.id, { text: md });
