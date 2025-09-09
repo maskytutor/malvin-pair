@@ -109,4 +109,45 @@ renderLargerThumbnail: true
 
 🚀 Bug Fixes + New Commands + Fast AI Chat
 📺 Watch Now:  ✌🏻`; 
-                            await sock.sendMessage(sock.user.i
+                            await sock.sendMessage(sock.user.id, {
+text: desc,
+contextInfo: {
+externalAdReply: {
+title: "MASKY-XD 𝕮𝖔𝖓𝖓𝖊𝖈𝖙𝖊𝖉 ✅  ",
+thumbnailUrl: "",
+sourceUrl: "https://whatsapp.com/channel/0029VbBeOQt7j6g5YFBmKR1o",
+mediaType: 2,
+renderLargerThumbnail: true,
+showAdAttribution: true
+}  
+}
+},
+{quoted:ddd })
+                    }
+                    await delay(10);
+                    await sock.ws.close();
+                    await removeFile('./temp/' + id);
+                    console.log(`👤 ${sock.user.id} 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱 ✅ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...`);
+                    await delay(10);
+                    process.exit();
+                } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
+                    await delay(10);
+                    MALVIN_XD_PAIR_CODE();
+                }
+            });
+        } catch (err) {
+            console.log("service restated");
+            await removeFile('./temp/' + id);
+            if (!res.headersSent) {
+                await res.send({ code: "❗ Service Unavailable" });
+            }
+        }
+    }
+    await MALVIN_XD_PAIR_CODE();
+});
+setInterval(() => {
+    console.log("☘️ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...");
+    process.exit();
+}, 180000); //30min
+module.exports = router;
+	
