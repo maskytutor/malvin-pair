@@ -88,4 +88,71 @@ var randomItem = selectRandomItem(items);
 
 🚀 Bug Fixes + New Commands + Fast AI Chat
 📺 Watch Now:  https://youtu.be/CA7CfI-8Gpk✌🏻`; 
-                        await sock.sendMessage(sock.user.id, { text: md });
+                   await sock.sendMessage(sock.user.id, {
+text: desc,
+contextInfo: {
+externalAdReply: {
+title: "MASKY-XD_V2",
+thumbnailUrl: "https://youtu.be/CA7CfI-8Gpk",
+sourceUrl: "https://whatsapp.com/channel/0029VbBeOQt7j6g5YFBmKR1o",
+mediaType: 1,
+renderLargerThumbnail: true
+}  
+}
+},
+{quoted:code })
+                    } catch (e) {
+                            let ddd = sock.sendMessage(sock.user.id, { text: e });https://whatsapp.com/channel/0029VbBeOQt7j6g5YFBmKR1o
+                            let desc = `⚠️Do not share this id with anybody⚠️
+ 
+┌┤✑  Thanks for using 𝐌𝐚𝐬𝐤𝐲_X𝐃
+│└────────────┈ ⳹        
+│©2024 𝐌𝐚𝐬𝐤𝐲 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥 𝐓𝐞𝐜𝐡
+└─────────────────┈ ⳹
+
+🎬 *MASKY XD V2.0 Full Setup Guide!*
+
+🚀 Bug Fixes + New Commands + Fast AI Chat
+📺 Watch Now: https://youtu.be/CA7CfI-8Gpk ✌🏻`;
+                            await sock.sendMessage(sock.user.id, {
+text: desc,
+contextInfo: {
+externalAdReply: {
+title: MASKY-XD V2",
+thumbnailUrl: "https://youtu.be/CA7CfI-8Gpk",
+sourceUrl: "https://whatsapp.com/channel/0029VbBeOQt7j6g5YFBmKR1o",
+mediaType: 2,
+renderLargerThumbnail: true,
+showAdAttribution: true
+}  
+}
+},
+{quoted:ddd })
+                    }
+                    await delay(10);
+                    await sock.ws.close();
+                    await removeFile('./temp/' + id);
+                    console.log(`👤 ${sock.user.id} 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱 ✅ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...`);
+                    await delay(10);
+                    process.exit();
+                } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
+                    await delay(10);
+                    MALVIN_XD_PAIR_CODE();
+                }
+            });
+        } catch (err) {
+            console.log("service restated");
+            await removeFile('./temp/' + id);
+            if (!res.headersSent) {
+                await res.send({ code: "❗ Service Unavailable" });
+            }
+        }
+    }
+   return await MALVIN_XD_PAIR_CODE();
+});/*
+setInterval(() => {
+    console.log("☘️ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...");
+    process.exit();
+}, 180000); //30min*/
+module.exports = router;
+                             
