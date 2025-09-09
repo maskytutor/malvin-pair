@@ -1,0 +1,46 @@
+name: Node.js App Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Start the app and keep it running
+      - name: Start the app
+        run: |
+          npm start &
+          sleep 10
+          ps aux
+          # Test that port is listening
+          if lsof -i :${PORT:-8000}; then
+            echo "Port is open ✅"
+          else
+            echo "Port not open ❌"
+            exit 1
+          fi
+
+      # Step 5: Check logs (optional)
+      - name: Show runtime logs
+        run: |
+          echo "Logs:"
+          tail -n 50 nohup.out || true
